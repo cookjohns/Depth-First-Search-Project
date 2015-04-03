@@ -4,13 +4,18 @@ import org.junit.Test;
 import java.util.SortedSet;
 import java.util.ArrayList;
 
-
+/*
+ * Test suite for JaysWordSearch
+ */
 public class JaysWordSearchTest {
 
+   // boards
    String[] set = {"a", "b", "c", "d", "e", "f", "g", "h", 
             "i", "j", "k", "l", "m", "n", "o", "p"};
+   
    String[] small = {"a", "b", "c", "d"};
-   String [] big = {
+   
+   String[] big = {
            "O",	"Y",	"D",	"D",	"T",	"P",	"N",	"R",	"A",	"H",	"E",	"L",	"C",	"S",	"B",	"P",	"S",	"U",	"B",	"G",
            "U",	"P",	"Y",	"H",	"R",	"R",	"X",	"R",	"E",	"F",	"H",	"D",	"H",	"T",	"K",	"X",	"K",	"O",	"Z",	"F",
            "W",	"Y",	"H",	"Y",	"T",	"C",	"H",	"M",	"V",	"P",	"R",	"T",	"A",	"K",	"N",	"E",	"S",	"I",	"B",	"T",
@@ -48,7 +53,8 @@ public class JaysWordSearchTest {
                      "O","R","X","Q","A","S","A","S","S","E","M","B","L","Y","O","Z","F","P","L","S","C","I","T","L","U","M","O",
                      "N","I","T","O","R","J","W","I","N","L","L","L","E","L","J","R","R","E","M","M","O","B","D","X","I","J","D",
                      "S","R","L","C","H","S","H","Y","U","L","P","M","O","U","S","E","C","B","I","I","U","I"};
-                     
+    
+   // initialize the game object
    JaysWordSearch game = new JaysWordSearch();
 
 	
@@ -58,24 +64,37 @@ public class JaysWordSearchTest {
       game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/csw12.txt");
    }
    
-    @Test public void whatever1() {
+   /*
+    * Tests isValidPrefix() for the letter a
+    */
+    @Test public void prefixTest1() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        Assert.assertEquals(true, game.isValidPrefix("A"));
     }
    
-    @Test public void whatever() {
+    /*
+     * Tests isValidPrefix() for the string "reoile"
+     */
+    @Test public void prefixTest0() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        Assert.assertEquals(true, game.isValidPrefix("REOILE"));
     }
    
+    /*
+     * Specific Webcat test for getAllValidWords() using supplied board
+     * and expected result 'temp'
+     */
    @Test public void webcatTest4() {
       game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
       String[] test = {"P","X","D","E","O","T","L","J","E","I","E","A","C","O","R","N"};
       game.setBoard(test);
       SortedSet<String> temp = game.getAllValidWords(3);
-      System.out.print("yo");
    }
     
+   /*
+    * Specific Webcat test for getAllValidWords() using supplied board
+    * and expected result 'temp'
+    */
     @Test public void webcatTest3() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        String[] church = {"c", "h", "u", "r", "c", "f", "e", "o", "g", "h", "s", "d", "r", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"};
@@ -84,6 +103,10 @@ public class JaysWordSearchTest {
        System.out.print("soentowisn");
     }
     
+    /*
+     * Specific Webcat test for getAllValidWords() using supplied board
+     * and expected result 'temp'
+     */
     @Test public void webcatTest2() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        game.setBoard(big2);
@@ -91,6 +114,10 @@ public class JaysWordSearchTest {
        SortedSet<String> result = temp;
     }
     
+    /*
+     * Specific Webcat test for getAllValidWords() using supplied board
+     * and expected result 'temp'
+     */
     @Test public void webcatTest1() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        String[] board = {"Z","E","Z","T","Q","I","O","X","U"};
@@ -99,12 +126,21 @@ public class JaysWordSearchTest {
        SortedSet<String> result = temp;
     }
     
+    /*
+     * Tests operation of loadLexicon(), setBoard(), and getAllValidWords()
+     * using the 'big' board
+     */
     @Test public void bigTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        game.setBoard(big);
        SortedSet<String> temp = game.getAllValidWords(3);
        SortedSet<String> result = temp;
     }
+    
+    /*
+     * Tests operation of the loadLexicon(), setBoard(), and getAllValidWords()
+     * using the 'long' board
+     */
     @Test public void longTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        String[] longBoard = randomBoard(400);
@@ -113,7 +149,9 @@ public class JaysWordSearchTest {
        SortedSet<String> result = temp;
     }
     
-    
+    /*
+     * Two tests for expected IllegalArgumentExceptions
+     */
     @Test (expected = IllegalArgumentException.class) 
     public void fileExistsTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/noFile.txt");
@@ -124,6 +162,9 @@ public class JaysWordSearchTest {
        game.setBoard(three);
     }
     
+    /*
+     * Tests setBoard() on a small board
+     */
     @SuppressWarnings("unused")
     @Test public void setBoardTest() {
        double dub = 25 % 1;   // for test
@@ -131,9 +172,11 @@ public class JaysWordSearchTest {
        game.setBoard(set);
        String[] small = {"c", "a", "t", "b"};
        game.setBoard(small);
-       
     }
     
+    /*
+     * Tests whether getBoard() returns the board
+     */
     @Test public void getBoardTest() {
        String temp = "abcd\nefgh\nijkl\nmnop";
        game.setBoard(set);
@@ -141,12 +184,18 @@ public class JaysWordSearchTest {
        Assert.assertEquals(temp, game.getBoard());
     }
     
+    /*
+     * Tests that isValidWord works as expected
+     */
     @Test public void isValidWordTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/csw12.txt");
        Assert.assertEquals(true, game.isValidWord("EA"));
        Assert.assertEquals(false, game.isValidWord("E"));
     }
     
+    /*
+     * Tests that isValidPrefix() works as expected
+     */
     @Test public void isValidPrefixTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words.txt");
        Assert.assertEquals(true, game.isValidPrefix("AB"));
@@ -158,6 +207,9 @@ public class JaysWordSearchTest {
        game.isValidPrefix("itqu");
     }
     
+    /*
+     * Tests getAllValidWords() on a small board
+     */
     @Test public void validWordsSmallTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words.txt");
        String[] small = {"c", "a", "t", "b"};
@@ -166,36 +218,40 @@ public class JaysWordSearchTest {
        game.getAllValidWords(2);
        game.getAllValidWords(1);
     }
+    
+    /*
+     * Tests for correct operation on a 1x1 board containing a valid word
+     */
     @Test public void tigerTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words.txt");
        String[] tiger = {"tiger"};
        game.setBoard(tiger);
        game.getAllValidWords(3);
     }
+    
+    /*
+     * Tests for correct operation on a small board containing valid words in
+     * more than one index
+     */
     @Test public void multiWordTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words.txt");
        String[] multi = {"cat", "x", "fish", "xxxx"};
        game.setBoard(multi);
        game.getAllValidWords(7);
     }
-       // long test goes here
-    // big board test goes here
-    public String[] randomBoard(int size) {
-       String[] boardInput = new String[size];
-       for (int i = 0; i < boardInput.length; i++) {
-          char nextLetter = (char)((Math.random() * 26) + 65);
-          boardInput[i] = Character.toString(nextLetter); 
-       }
-       return boardInput;
     
-    }
-    
+    /*
+     * Tests lexContains() to check for uppercase and lowercase on the same word
+     */
     @Test public void containsTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/csw12.txt");
        Assert.assertEquals(true, game.lexContains("CAB"));
        Assert.assertEquals(true,  game.lexContains("cab"));
     }
     
+    /*
+     * Tests isOnBoard()
+     */
     @Test public void isOnBoardTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words.txt");
        String[] small = {"c", "a", "t", "b"};
@@ -223,17 +279,26 @@ public class JaysWordSearchTest {
        Assert.assertEquals(temp4, game.isOnBoard("quiet"));
     }
     
-    // method does not exist > retitled isOnBoard
-    @Test public void isOnBoardNoCheckTest() {
-       String[] test = {"x", "y", "z", "b"};
-       game.setBoard(test);
-       //game.isOnBoardNoCheck("xzy");   <-- does not exist
-    }
-    
+    /*
+     * Tests isValidPrefix()
+     */
     @Test public void prefixSmokeTest() {
        game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/words_medium.txt");
        String prefix = "XXX";
        Assert.assertEquals(false, game.isValidPrefix(prefix));
     }
-   
+    
+    /*
+     * Helper method that creates a random board
+     * @param size takes in the desired board size
+     * @return the board
+     */
+    public String[] randomBoard(int size) {
+       String[] boardInput = new String[size];
+       for (int i = 0; i < boardInput.length; i++) {
+          char nextLetter = (char)((Math.random() * 26) + 65);
+          boardInput[i] = Character.toString(nextLetter); 
+       }
+       return boardInput;
+    }
 }
