@@ -13,6 +13,11 @@ public class Let {
     private Let[] neighborArr = new Let[8];
     private boolean visited = false;
     
+    /*
+     * Constructor
+     * @param yIn takes in y coordinate
+     * @param xIn takes in x coordinate
+     */
     public Let(int yIn, int xIn) {
        y = yIn;
        x = xIn;
