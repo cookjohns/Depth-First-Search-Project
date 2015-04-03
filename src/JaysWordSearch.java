@@ -250,13 +250,13 @@ public class JaysWordSearch implements WordSearchGame {
        return totalScore;
     }
     
-    /**
+   /**
   	* Determines if the given word is in the lexicon.
   	* 
   	* @param wordToCheck The word to validate
   	* @return true if wordToCheck appears in lexicon, false otherwise.
   	* @throws IllegalArgumentException if wordToCheck is null.
-     * @throws IllegalStateException if loadLexicon has not been called.
+    * @throws IllegalStateException if loadLexicon has not been called.
   	*/
      public boolean isValidWord(String wordToCheck) {
         if (wordToCheck == null) {
@@ -273,7 +273,7 @@ public class JaysWordSearch implements WordSearchGame {
         return false;
      }
   	
-    /**
+   /**
   	* Determines if there is at least one word in the lexicon with the 
   	* given prefix.
   	* 
@@ -281,7 +281,7 @@ public class JaysWordSearch implements WordSearchGame {
   	* @return true if prefixToCheck appears in lexicon, false otherwise.
   	* @throws IllegalArgumentException if prefixToCheck is null.
   	* @throws IllegalStateException if loadLexicon has not been called.
-      */
+    */
      public boolean isValidPrefix(String prefixToCheck) {
         if (prefixToCheck == null) {
            throw new IllegalArgumentException();
@@ -316,7 +316,7 @@ public class JaysWordSearch implements WordSearchGame {
         }
      }
      
-     /**
+   /**
   	* Determines if the given word is in on the game board. If so, 
   	*	it returns the path that makes up the word.
   	* 
@@ -324,11 +324,11 @@ public class JaysWordSearch implements WordSearchGame {
   	* @return java.util.List containing java.lang.Integer objects with 
   	*	the path that makes up the word on the game board. If word
   	*	is not on the game board, return null. Positions on the board are
-     *  numbered from zero top to bottom, left to right (i.e., in row-major
-     *  order). Thus, on an NxN board, the upper left position is numbered 
-     *  0 and the lower right position is numbered N^2 - 1.
-     * @throws IllegalArgumentException if wordToCheck is null.
-     * @throws IllegalStateException if loadLexicon has not been called.
+    *   numbered from zero top to bottom, left to right (i.e., in row-major
+    *   order). Thus, on an NxN board, the upper left position is numbered 
+    *   0 and the lower right position is numbered N^2 - 1.
+    * @throws IllegalArgumentException if wordToCheck is null.
+    * @throws IllegalStateException if loadLexicon has not been called.
   	*/
     public List<Integer> isOnBoard(String wordToCheck) {
        if (wordToCheck == null || loadLexCalls < 1) {

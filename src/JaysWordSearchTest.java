@@ -64,7 +64,7 @@ public class JaysWordSearchTest {
       game.loadLexicon("/Users/johncook/Google Drive/COMP 2210/Assignment 4/wordfiles/csw12.txt");
    }
    
-   /*
+   /**
     * Tests isValidPrefix() for the letter a
     */
     @Test public void prefixTest1() {
@@ -72,7 +72,7 @@ public class JaysWordSearchTest {
        Assert.assertEquals(true, game.isValidPrefix("A"));
     }
    
-    /*
+    /**
      * Tests isValidPrefix() for the string "reoile"
      */
     @Test public void prefixTest0() {
@@ -80,7 +80,7 @@ public class JaysWordSearchTest {
        Assert.assertEquals(true, game.isValidPrefix("REOILE"));
     }
    
-    /*
+    /**
      * Specific Webcat test for getAllValidWords() using supplied board
      * and expected result 'temp'
      */
@@ -91,7 +91,7 @@ public class JaysWordSearchTest {
       SortedSet<String> temp = game.getAllValidWords(3);
    }
     
-   /*
+   /**
     * Specific Webcat test for getAllValidWords() using supplied board
     * and expected result 'temp'
     */
@@ -103,7 +103,7 @@ public class JaysWordSearchTest {
        System.out.print("soentowisn");
     }
     
-    /*
+    /**
      * Specific Webcat test for getAllValidWords() using supplied board
      * and expected result 'temp'
      */
@@ -114,7 +114,7 @@ public class JaysWordSearchTest {
        SortedSet<String> result = temp;
     }
     
-    /*
+    /**
      * Specific Webcat test for getAllValidWords() using supplied board
      * and expected result 'temp'
      */
@@ -126,7 +126,7 @@ public class JaysWordSearchTest {
        SortedSet<String> result = temp;
     }
     
-    /*
+    /**
      * Tests operation of loadLexicon(), setBoard(), and getAllValidWords()
      * using the 'big' board
      */
@@ -137,7 +137,7 @@ public class JaysWordSearchTest {
        SortedSet<String> result = temp;
     }
     
-    /*
+    /**
      * Tests operation of the loadLexicon(), setBoard(), and getAllValidWords()
      * using the 'long' board
      */
@@ -149,7 +149,7 @@ public class JaysWordSearchTest {
        SortedSet<String> result = temp;
     }
     
-    /*
+    /**
      * Two tests for expected IllegalArgumentExceptions
      */
     @Test (expected = IllegalArgumentException.class) 
@@ -162,7 +162,7 @@ public class JaysWordSearchTest {
        game.setBoard(three);
     }
     
-    /*
+    /**
      * Tests setBoard() on a small board
      */
     @SuppressWarnings("unused")
@@ -174,7 +174,7 @@ public class JaysWordSearchTest {
        game.setBoard(small);
     }
     
-    /*
+    /**
      * Tests whether getBoard() returns the board
      */
     @Test public void getBoardTest() {
@@ -184,7 +184,7 @@ public class JaysWordSearchTest {
        Assert.assertEquals(temp, game.getBoard());
     }
     
-    /*
+    /**
      * Tests that isValidWord works as expected
      */
     @Test public void isValidWordTest() {
@@ -193,7 +193,7 @@ public class JaysWordSearchTest {
        Assert.assertEquals(false, game.isValidWord("E"));
     }
     
-    /*
+    /**
      * Tests that isValidPrefix() works as expected
      */
     @Test public void isValidPrefixTest() {
@@ -207,7 +207,7 @@ public class JaysWordSearchTest {
        game.isValidPrefix("itqu");
     }
     
-    /*
+    /**
      * Tests getAllValidWords() on a small board
      */
     @Test public void validWordsSmallTest() {
@@ -219,7 +219,7 @@ public class JaysWordSearchTest {
        game.getAllValidWords(1);
     }
     
-    /*
+    /**
      * Tests for correct operation on a 1x1 board containing a valid word
      */
     @Test public void tigerTest() {
@@ -229,7 +229,7 @@ public class JaysWordSearchTest {
        game.getAllValidWords(3);
     }
     
-    /*
+    /**
      * Tests for correct operation on a small board containing valid words in
      * more than one index
      */
@@ -240,7 +240,7 @@ public class JaysWordSearchTest {
        game.getAllValidWords(7);
     }
     
-    /*
+    /**
      * Tests lexContains() to check for uppercase and lowercase on the same word
      */
     @Test public void containsTest() {
@@ -249,7 +249,7 @@ public class JaysWordSearchTest {
        Assert.assertEquals(true,  game.lexContains("cab"));
     }
     
-    /*
+    /**
      * Tests isOnBoard()
      */
     @Test public void isOnBoardTest() {
@@ -279,7 +279,7 @@ public class JaysWordSearchTest {
        Assert.assertEquals(temp4, game.isOnBoard("quiet"));
     }
     
-    /*
+    /**
      * Tests isValidPrefix()
      */
     @Test public void prefixSmokeTest() {
@@ -288,7 +288,7 @@ public class JaysWordSearchTest {
        Assert.assertEquals(false, game.isValidPrefix(prefix));
     }
     
-    /*
+    /**
      * Helper method that creates a random board
      * @param size takes in the desired board size
      * @return the board
